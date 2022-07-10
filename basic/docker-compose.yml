@@ -1,0 +1,39 @@
+version: '3.5'
+
+services:
+  db:
+    image: phdcoder/postgresbr
+    restart: always
+    volumes:
+      - postgres_database2:/var/lib/postgresql/data/pgdata
+      - ./initdb:/docker-entrypoint-initdb.d
+    environment:
+      POSTGRES_USER: guia
+      POSTGRES_DB: guia
+      POSTGRES_PASSWORD: guia2020
+      PGDATA: /var/lib/postgresql/data/pgdata
+      LANG: pt_BR.utf8
+    ports:
+      - "5439:5432"
+
+  app:
+    depends_on:
+      - db
+    image: dmstr/php-yii2:latest-alpine-nginx
+    restart: always
+    environment:
+      - PHP_ENABLE_XDEBUG=1
+      - GUIA_DBHOST=db
+      - GUIA_DBNAME=guia
+      - GUIA_DBUSER=guia
+      - GUIA_DBPASS=guia2020
+    volumes:
+      - .:/app
+    ports:
+      - "880:80"
+      - "4443:443"
+    #Se seu host roda linux, substitua host.docker.internal com o resultado de $ ip route | grep docker0 | awk '{print $9}' 
+    command: bash -c "composer install && chown -R www-data:www-data /app/web/assets && chown -R www-data:www-data  /app/runtime &&  chmod -R 755 /app/web/assets && chmod -R 755 /app/runtime  && php ./yii migrate --interactive=0  && export XDEBUG_CONFIG=\"remote_connect_back=0 remote_enable=1 remote_host=host.docker.internal\" && forego start -r -f /root/Procfile"
+volumes:
+  postgres_database2:
+    external: true

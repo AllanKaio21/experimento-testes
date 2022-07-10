@@ -1,0 +1,8 @@
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - WebDriver:
+            url: http://127.0.0.1:8080/index-test.php
+            browser: chrome
+            wait: 5
