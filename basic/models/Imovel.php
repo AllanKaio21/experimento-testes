@@ -32,13 +32,20 @@ class Imovel extends \yii\db\ActiveRecord
         return [
             [['nome', 'pessoa_id'], 'required'],
             [['pessoa_id', 'cidade_id', 'estado_id'], 'integer'],
-            [['nome', 'cep', 'rua'], 'string', 'max' => 255],
-            [['complemento'], 'string'],
-            [['valor'], 'number', 'min' => 0, 'max' => 9999999999],
+            [['cep', 'rua'], 'string', 'max' => 255],
+            [['nome', 'complemento'], 'string'],
+            [['valor'], 'number', 'min' => 0, 'max' => 10],
             [['cidade_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cidade::className(), 'targetAttribute' => ['cidade_id' => 'id']],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],
             [['pessoa_id'], 'exist', 'skipOnError' => true, 'targetClass' => Pessoa::className(), 'targetAttribute' => ['pessoa_id' => 'id']],
+            [['cep'], 'ceptester'],
         ];
+    }
+
+    public function ceptester($attribute, $params, $validator){
+        if (strlen($this->cep) != 8){
+            $this->addError($attribute,'cep invalido');
+        }
     }
 
     /**

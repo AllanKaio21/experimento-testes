@@ -19,10 +19,10 @@ services:
   app:
     depends_on:
       - db
-    image: dmstr/php-yii2:latest-alpine-nginx
+    image: dmstr/php-yii2:8.0-fpm-8.0-beta2-nginx
     restart: always
     environment:
-      - PHP_ENABLE_XDEBUG=1
+      - PHP_ENABLE_XDEBUG=0
       - GUIA_DBHOST=db
       - GUIA_DBNAME=guia
       - GUIA_DBUSER=guia
@@ -33,7 +33,20 @@ services:
       - "880:80"
       - "4443:443"
     #Se seu host roda linux, substitua host.docker.internal com o resultado de $ ip route | grep docker0 | awk '{print $9}' 
-    command: bash -c "composer install && chown -R www-data:www-data /app/web/assets && chown -R www-data:www-data  /app/runtime &&  chmod -R 755 /app/web/assets && chmod -R 755 /app/runtime  && php ./yii migrate --interactive=0  && export XDEBUG_CONFIG=\"remote_connect_back=0 remote_enable=1 remote_host=host.docker.internal\" && forego start -r -f /root/Procfile"
+    command: bash -c "chown -R www-data:www-data /app/web/assets
+                    && chown -R www-data:www-data  /app/runtime
+                    && chown -R www-data:www-data  /app/models
+                    && chown -R www-data:www-data  /app/controllers
+                    && chown -R www-data:www-data  /app/views
+                    && chmod -R 755 /app/web/assets
+                    && chmod -R 755 /app/runtime
+                    && chmod -R 755 /app/models
+                    && chmod -R 755 /app/views
+                    && chmod -R 755 /app/controllers
+                    && chmod +x /app/yii
+                    && ./yii migrate --interactive=0
+                    && export XDEBUG_CONFIG=\"remote_connect_back=0 remote_enable=1 remote_host=host.docker.internal\"
+                    && supervisord -c  /etc/supervisor/supervisord.conf"
 volumes:
   postgres_database2:
     external: true

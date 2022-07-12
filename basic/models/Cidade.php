@@ -29,7 +29,8 @@ class Cidade extends \yii\db\ActiveRecord
             [['nome'], 'string'],
             [['estado_id'], 'integer'],
             [['uf'], 'string', 'max' => 2],
-            [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],        ];
+            [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],
+            ];
     }
     
     /**

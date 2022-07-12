@@ -29,17 +29,23 @@ class Pessoa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cpf'], 'required'],
+            [['nome', 'cpf'], 'required', 'message' => 'Campo não pode ficar em branco!'],
             [['cpf', 'cidade_id', 'estado_id'], 'integer'],
-            [['nome', 'cep', 'rua', 'profissao'], 'string', 'max' => 255],
-            [['complemento'], 'string'],
+            [['cep', 'rua', 'profissao'], 'string', 'max' => 255],
+            [['nome', 'complemento'], 'string'],
             [['cidade_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cidade::className(), 'targetAttribute' => ['cidade_id' => 'id']],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],            
-            ['cpf', \yiibr\brvalidator\CpfValidator::className()],
-            ['cpf', 'validateFieldUnique'],
+            [['cpf'], \yiibr\brvalidator\CpfValidator::className()],
+            [['cpf'], 'validateFieldUnique'],
+            [['cep'], 'ceptester'],
         ];
     }
-    
+
+    public function ceptester($attribute, $params, $validator){
+        if (strlen($this->cep) != 8){
+            $this->addError($attribute,'Cep deve conter oito caracters.');
+        }
+    }
     /**
      * @inheritdoc
      */

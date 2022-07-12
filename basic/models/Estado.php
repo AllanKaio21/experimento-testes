@@ -26,7 +26,8 @@ class Estado extends \yii\db\ActiveRecord
         return [
             [['nome'], 'required'],
             [['nome'], 'string'],
-            [['uf'], 'integer'],        ];
+            [['uf'], 'integer'],
+        ];
     }
     
     /**

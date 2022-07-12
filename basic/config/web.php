@@ -23,6 +23,12 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+            'class' => 'webvimark\modules\UserManagement\components\UserConfig',
+
+            // Comment this if you don't want to record user logins
+            'on afterLogin' => function($event) {
+                \webvimark\modules\UserManagement\models\UserVisitLog::newVisitor($event->identity->id);
+            }
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -51,6 +57,22 @@ $config = [
             ],
         ],
     ],
+    'modules' => [
+        'user-management' => [
+            'class' => 'webvimark\modules\UserManagement\UserManagementModule',
+            'on beforeAction'=>function(yii\base\ActionEvent $event) {
+                if ( $event->action->uniqueId == 'user-management/auth/login' ){
+                    $event->action->controller->layout = 'loginLayout.php';
+                };
+            },
+        ],
+        'gridview' => [
+            'class' => '\kartik\grid\Module',
+        ],
+        'datecontrol' => [
+            'class' => '\kartik\datecontrol\Module',
+        ],
+    ],
     'params' => $params,
 ];
 
@@ -67,7 +89,7 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => ['*'],
     ];
 }
 

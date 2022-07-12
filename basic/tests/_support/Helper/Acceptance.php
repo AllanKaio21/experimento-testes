@@ -27,7 +27,7 @@ class Acceptance extends \Codeception\Module
         $I->pressKey($searchField, \WebDriverKeys::ENTER);
     }
 
-    public function _afterStep(\Codeception\Step $step, TestInterface $test)
+    public function afterStep(\Codeception\Step $step, TestInterface $test)
     {
 //        $tr = new TranslateClient('en', 'pt');
 

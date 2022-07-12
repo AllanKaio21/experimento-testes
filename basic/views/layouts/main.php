@@ -51,7 +51,7 @@ AppAsset::register($this);
             ],
             [
                 'label' => 'Gii',
-                'url' => ['/index.php?r=gii'],
+                'url' => ['/gii'],
             ],
             Yii::$app->user->isGuest ? (
             ['label' => 'Login', 'url' => ['/site/login']]
