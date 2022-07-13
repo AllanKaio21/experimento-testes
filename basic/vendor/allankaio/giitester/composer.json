@@ -1,0 +1,54 @@
+{
+    "name": "allankaio/giitester",
+    "description": "Generate Relational (hasMany, hasOne, belongsTo, & nested) Models & CRUD.",
+    "keywords": ["relation", "gii", "yii2", "yii", "enhanced","simple-gii", "easyii gii", "easyiigii", "giitester"],
+    "license": "BSD-3-Clause",
+    "type": "yii2-extension",
+    "authors": [
+        {
+            "name": "Allan Kaio Brito Macedo",
+            "email": "allankaio276@gmail.com"
+        },
+        {
+            "name": "Matheus Evangelista Morais",
+            "email": "thtmorais@hotmail.com"
+        },
+        {
+            "name": "Matheus Evangelista Morais",
+            "email": "thtmorais@hotmail.com"
+        },
+        {
+            "name": "Peterson Silva",
+            "email": "petersondejesus99@gmail.com"
+        },
+        {
+            "name": "Yohanes Candrajaya",
+            "email": "moo.tensai@gmail.com"
+        },
+        {
+            "name": "Jiwantoro Ndaru",
+            "email": "jiwanndaru@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+        "kartik-v/yii2-builder": "*",
+        "kartik-v/yii2-grid": "*",
+        "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-export": "@dev",
+        "kartik-v/yii2-datecontrol": "*",
+        "webvimark/module-user-management": "*",
+        "arogachev/yii2-many-to-many": "*",
+        "yiibr/yii2-br-validator": "*",
+        "yii-dream-team/yii2-upload-behavior": "*",
+        "kartik-v/yii2-mpdf": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "allankaio\\giitester\\": ""
+        }
+    },
+    "extra": {
+        "bootstrap": "allankaio\\giitester\\Bootstrap"
+    }
+}
