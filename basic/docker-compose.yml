@@ -5,7 +5,7 @@ services:
     image: phdcoder/postgresbr
     restart: always
     volumes:
-      - postgres_database2:/var/lib/postgresql/data/pgdata
+      - experimento_giitester:/var/lib/postgresql/data/pgdata
       - ./initdb:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_USER: guia
@@ -13,8 +13,6 @@ services:
       POSTGRES_PASSWORD: guia2020
       PGDATA: /var/lib/postgresql/data/pgdata
       LANG: pt_BR.utf8
-    ports:
-      - "5439:5432"
 
   app:
     depends_on:
@@ -48,5 +46,5 @@ services:
                     && export XDEBUG_CONFIG=\"remote_connect_back=0 remote_enable=1 remote_host=host.docker.internal\"
                     && supervisord -c  /etc/supervisor/supervisord.conf"
 volumes:
-  postgres_database2:
+  experimento_giitester:
     external: true

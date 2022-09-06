@@ -1,5 +1,0 @@
-Pessoa=>Cidade
-Pessoa=>Estado
-Imovel=>Cidade
-Imovel=>Estado
-Imovel=>Pessoa
