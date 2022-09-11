@@ -147,7 +147,7 @@
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/kartik-v/php-date-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/basic/vendor/kartik-v/yii2-widget-select2" />
-      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/kartik-v/yii2-money2" />
+      <excludeFolder url="file://$MODULE_DIR$/basic/vendor/kartik-v/yii2-money" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

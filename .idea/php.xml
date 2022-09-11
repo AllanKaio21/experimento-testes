@@ -145,7 +145,7 @@
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/php-date-formatter" />
       <path value="$PROJECT_DIR$/basic/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-select2" />
-      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-money2" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-money" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
