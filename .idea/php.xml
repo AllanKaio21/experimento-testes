@@ -10,7 +10,6 @@
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-alert" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-switchinput" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-datepicker" />
-      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-money" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-helpers" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-timepicker" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-export" />
@@ -145,7 +144,8 @@
       <path value="$PROJECT_DIR$/basic/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/php-date-formatter" />
       <path value="$PROJECT_DIR$/basic/vendor/phpdocumentor/reflection-common" />
-      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-select22" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-select2" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-money2" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
