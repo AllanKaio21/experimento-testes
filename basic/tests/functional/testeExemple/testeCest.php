@@ -1,5 +1,5 @@
 <?php
-class Teste
+class TesteCest
 {
     // Form
     public function TesteForm(FunctionalTester $I)
