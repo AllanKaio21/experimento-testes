@@ -44,7 +44,7 @@ class Imovel extends \yii\db\ActiveRecord
 
     public function ceptester($attribute, $params, $validator){
         if (strlen($this->cep) != 8){
-            $this->addError($attribute,'cep invalido');
+            $this->addError($attribute,'Cep deve conter oito caracters.');
         }
     }
 

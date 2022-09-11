@@ -11,12 +11,8 @@ use kartik\money\MaskMoney;
 /* @var $form yii\widgets\ActiveForm */
 /* @var $estados \app\models\Estado[] */
 
-//$estados = \yii\helpers\ArrayHelper::map($estados, 'id', 'name');
-$estados = [
-    ['id' => '123', 'name' => 'aaa', 'class' => 'x'],
-    ['id' => '124', 'name' => 'bbb', 'class' => 'x'],
-    ['id' => '345', 'name' => 'ccc', 'class' => 'y'],
-];
+$estados = \yii\helpers\ArrayHelper::map($estados, 'id', 'name');
+
 ?>
 
 <div class="imovel-form">

@@ -88,6 +88,7 @@ class ImovelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $estados = Estado::find()->select(['id', 'nome as name'])->asArray()->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -95,6 +96,7 @@ class ImovelController extends Controller
 
         return $this->render('update', [
             'model' => $model,
+            'estados' => $estados,
         ]);
     }
 
