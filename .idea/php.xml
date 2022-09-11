@@ -102,7 +102,6 @@
       <path value="$PROJECT_DIR$/basic/vendor/yiisoft/yii2-bootstrap" />
       <path value="$PROJECT_DIR$/basic/vendor/yiisoft/yii2-gii" />
       <path value="$PROJECT_DIR$/basic/vendor/yiisoft/yii2-faker" />
-      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-select2" />
       <path value="$PROJECT_DIR$/basic/vendor/yiisoft/yii2-swiftmailer" />
       <path value="$PROJECT_DIR$/basic/vendor/codeception/codeception" />
       <path value="$PROJECT_DIR$/basic/vendor/codeception/lib-asserts" />
@@ -146,6 +145,7 @@
       <path value="$PROJECT_DIR$/basic/vendor/psr/simple-cache" />
       <path value="$PROJECT_DIR$/basic/vendor/kartik-v/php-date-formatter" />
       <path value="$PROJECT_DIR$/basic/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/basic/vendor/kartik-v/yii2-widget-select22" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
