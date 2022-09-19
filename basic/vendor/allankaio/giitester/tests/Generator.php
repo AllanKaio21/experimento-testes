@@ -337,13 +337,13 @@ class Generator extends \allankaio\giitester\BaseGenerator
                    ])
             );
 
-            //functional tests date types
-            $files[] = new CodeFile(
-                Yii::getAlias('@' . str_replace('\\', '/', $this->getTestePath())) . '/' . $modelClassName . "/Test{$modelClassName}DateTypes" . 'Cest.php',
-                $this->render('testDateTypes.php', [
-                    'relations' => isset($relations[$tableName]) ? $relations[$tableName] : [],
-                ])
-            );
+//            //functional tests date types
+//            $files[] = new CodeFile(
+//                Yii::getAlias('@' . str_replace('\\', '/', $this->getTestePath())) . '/' . $modelClassName . "/Test{$modelClassName}DateTypes" . 'Cest.php',
+//                $this->render('testDateTypes.php', [
+//                    'relations' => isset($relations[$tableName]) ? $relations[$tableName] : [],
+//                ])
+//            );
 
             //functional tests Delete
             $files[] = new CodeFile(

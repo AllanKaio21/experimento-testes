@@ -37,6 +37,7 @@ class Pessoa extends \yii\db\ActiveRecord
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],            
             [['cpf'], \yiibr\brvalidator\CpfValidator::className()],
             [['cpf'], 'validateFieldUnique'],
+            [['cpf'], 'unique'],
             [['cep'], 'ceptester'],
         ];
     }
@@ -105,11 +106,12 @@ class Pessoa extends \yii\db\ActiveRecord
 
     public function validateFieldUnique($attribute, $params, $validator)
     {
-        if ($this->cpf != null && $this->cpf != "") {
-            $data = Pessoa::find()->where(['cpf' => $this->cpf])->all();
-            if ($data) {
-                $this->addError('cpf', 'CPF já cadastrado no sistema, por você ou por outro aluno.');
-            }
-        }
+
+//        if ($this->cpf != null && $this->cpf != "") {
+//            $data = Pessoa::find()->where(['cpf' => $this->cpf])->all();
+//            if ($data) {
+//                $this->addError('cpf', 'CPF já cadastrado no sistema, por você ou por outro aluno.');
+//            }
+//        }
     }
 }

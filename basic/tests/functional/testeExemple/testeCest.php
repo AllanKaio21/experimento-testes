@@ -4,7 +4,7 @@ class TesteCest
     // Form
     public function TesteForm(FunctionalTester $I)
     {
-        $I->wantTo('Verify exception for form');
+        $I->expectTo('Verify exception for form');
         $I->amOnRoute('teste/create');
         $I->submitForm('form',[
             'Teste[nome]' => 'João',
@@ -25,7 +25,7 @@ class TesteCest
     // Update
     public function testeUpdate(FunctionalTester $I)
     {
-        $I->wantTo("Verify exception for Update");
+        $I->expectTo("Verify exception for Update");
         $model = $I->grabRecord('app\models\Teste', array('nome' => 'João'));
         $I->amOnRoute('teste/update',['id' => $model->id]);
         $I->submitForm('form',[

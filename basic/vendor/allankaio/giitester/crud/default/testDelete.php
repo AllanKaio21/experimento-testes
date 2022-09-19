@@ -41,7 +41,7 @@ class Test<?= $modelClassName ?>DeleteCest
     //Test Delete
     public function <?= $modelClassName . 'Delete' ?>(FunctionalTester $I)
     {
-        $I->wantTo('Verify exception for Delete');
+        $I->expectTo('Verify exception for Delete');
 <?php foreach ($tableSchema->columns as $column): ?>
 <?php if ($column->allowNull==false && !$column->isPrimaryKey && $column->type=='text'):?>
         $category = $I->grabRecord('app\models\<?=$modelClassName?>', array('<?=$column->name?>' => '<?=$string?>'));

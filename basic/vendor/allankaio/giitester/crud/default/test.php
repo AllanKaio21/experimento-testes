@@ -61,7 +61,7 @@ class Test<?= $modelClassName ?>Cest
     //Test Template Form
     public function <?= $modelClassName . 'Form' ?>(FunctionalTester $I)
     {
-        $I->wantTo('Verify exception for form');
+        $I->expectTo('Verify exception for form');
         $I->amOnPage('<?= $tableSchema->fullName ?>/create');
 <?php //Get dependencies?>
 <?php $i=0?>
@@ -173,11 +173,11 @@ class Test<?= $modelClassName ?>Cest
 <?php foreach ($tableSchema->columns as $column): ?>
 <?php $key = $helper->isKey($keys, $column->name)?>
 <?php $isDefault = $helper->isDefaultValidator($column->name, $modelRules)?>
-<?php if ($column->allowNull==false && $column->phpType=='integer' && !$column->isPrimaryKey && $isDefault[0]):?>
+<?php if ($column->allowNull==false && $column->phpType=='integer' && !$column->isPrimaryKey):?>
         $I->seeRecord('app\models\<?= $modelClassName ?>', [
             <?= "'$column->name' => "?><?= $key[0] ? '$category[' . $j . ']->' . $arrayfk2[array_search($column->name, $key2)][$column->name] : "'$inte[$i]'" ?>,
         ]);
-<?php elseif ($column->allowNull==false && $column->type=='date' && !$column->isPrimaryKey && $isDefault[0]):?>
+<?php elseif ($column->allowNull==false && $column->type=='date' && !$column->isPrimaryKey):?>
         $I->seeRecord('app\models\<?= $modelClassName ?>', [
             <?= "'$column->name' => "?><?= $key[0] ? '$category[' . $j . ']->' . $arrayfk2[array_search($column->name, $key2)][$column->name] : "'$datee[$i]'" ?>,
         ]);
@@ -189,10 +189,13 @@ class Test<?= $modelClassName ?>Cest
         $I->seeRecord('app\models\<?= $modelClassName ?>', [
             <?= "'$column->name' => "?><?= $key[0] ? '$category[' . $j . ']->' . $arrayfk2[array_search($column->name, $key2)][$column->name] : "'$time[$i]'" ?>,
         ]);
-<?php elseif ($column->allowNull==false && $column->type=='text' && !$column->isPrimaryKey && $isDefault[0]):?>
+<?php elseif ($column->allowNull==false && $column->type=='text' && !$column->isPrimaryKey):?>
         $I->seeRecord('app\models\<?= $modelClassName ?>', [
             <?= "'$column->name' => "?><?= $key[0] ? '$category[' . $j . ']->' . $arrayfk2[array_search($column->name, $key2)][$column->name] : "'$stringe[$i]'" ?>,
         ]);
+<?php endif;?>
+<?php if(!$isDefault[0]):?>
+        //TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
 <?php endif;?>
 <?php if($key[0] && $column->allowNull==false):?>
 <?php $j++;?>
@@ -204,7 +207,7 @@ class Test<?= $modelClassName ?>Cest
     //Test Update
     public function <?= $modelClassName . 'Update' ?>(FunctionalTester $I)
     {
-        $I->wantTo("Verify exception for Update");
+        $I->expectTo("Verify exception for Update");
 <?php foreach ($tableSchema->columns as $column): ?>
 <?php $key = $helper->isKey($keys, $column->name)?>
 <?php if ($column->allowNull==false && !$column->isPrimaryKey && $column->type=='text'):?>
@@ -285,6 +288,10 @@ class Test<?= $modelClassName ?>Cest
 <?php $vf = $helper->isMinOrMax($column->name,$modelRules)?>
 <?php $vfcpf = $helper->cpfField($column->name,$modelRules)?>
 <?php $key = $helper->isKey($keys, $column->name)?>
+<?php $isDefault = $helper->isDefaultValidator($column->name, $modelRules)?>
+<?php if(!$isDefault[0]):?>
+        //TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
+<?php endif;?>
 <?php if ($column->allowNull==false && $column->phpType=='integer' && !$column->isPrimaryKey && !$key[0]):?>
         $I->seeRecord('app\models\<?= $tableSchema->fullName ?>', [
             <?= "'$column->name' => '$inte[$i]'" ?>,
