@@ -67,9 +67,9 @@ class Test<?= $modelClassName ?>Cest
     }
 
     //Test Template Form
-    public function <?= $modelClassName . 'Form' ?>(FunctionalTester $I)
+    public function <?= $modelClassName . 'Create' ?>(FunctionalTester $I)
     {
-        $I->wantTo('Verify exception for form');
+        $I->wantTo('Verify exception for create');
         $I->amOnRoute('<?= $route ?>/create');
 <?php //Get dependencies?>
 <?php $i=0?>
@@ -160,7 +160,7 @@ class Test<?= $modelClassName ?>Cest
 <?php $vfrequired = $helper->isThisRule($column->name, $modelRules, 'required')?>
 <?php $isDefault = $helper->isDefaultValidator($column->name, $modelRules)?>
 <?php if(!$isDefault[0]):?>
-        //TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
+        // TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
 <?php endif;?>
 <?php if ($column->phpType=='integer' && !$column->isPrimaryKey && !$key[0]):?>
         $I->seeRecord('app\models\<?= $modelClassName ?>', [
@@ -235,7 +235,7 @@ class Test<?= $modelClassName ?>Cest
 <?php $key = $helper->isKey($keys, $column->name)?>
 <?php $isDefault = $helper->isDefaultValidator($column->name, $modelRules)?>
 <?php if(!$isDefault[0]):?>
-            //TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
+            // TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
 <?php endif;?>
 <?php if ($column->phpType=='integer' && !$column->isPrimaryKey):?>
 <?php if($vfcpf):?>
@@ -287,7 +287,7 @@ class Test<?= $modelClassName ?>Cest
 <?php $key = $helper->isKey($keys, $column->name)?>
 <?php $isDefault = $helper->isDefaultValidator($column->name, $modelRules)?>
 <?php if(!$isDefault[0]):?>
-        //TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
+        // TODO: This attribute "<?=$column->name?>" contains a custom rule "<?=$isDefault[1]?>", enter it manually.
 <?php endif;?>
 <?php if ($column->phpType=='integer' && !$column->isPrimaryKey && !$key[0]):?>
         $I->seeRecord('app\models\<?= $tableSchema->fullName ?>', [
@@ -313,5 +313,5 @@ class Test<?= $modelClassName ?>Cest
 }
 <?php $helper->testerExecOrder()?>
 <?php else:?>
-    //TODO: Template "<?=$modelvf?>" not found, you must create the template for this table before creating the autotest.
+    // TODO: Template "<?=$modelvf?>" not found, you must create the template for this table before creating the autotest.
 <?php endif;?>

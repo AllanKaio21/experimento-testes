@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use Yii;
+use \yii\validators;
 
 /**
  * This is the base model class for table "pessoa".
@@ -37,7 +37,6 @@ class Pessoa extends \yii\db\ActiveRecord
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],            
             [['cpf'], \yiibr\brvalidator\CpfValidator::className()],
             [['cpf'], 'validateFieldUnique'],
-            [['cpf'], 'unique'],
             [['cep'], 'ceptester'],
         ];
     }
@@ -106,12 +105,7 @@ class Pessoa extends \yii\db\ActiveRecord
 
     public function validateFieldUnique($attribute, $params, $validator)
     {
-
-//        if ($this->cpf != null && $this->cpf != "") {
-//            $data = Pessoa::find()->where(['cpf' => $this->cpf])->all();
-//            if ($data) {
-//                $this->addError('cpf', 'CPF já cadastrado no sistema, por você ou por outro aluno.');
-//            }
-//        }
+        $unique = new validators\UniqueValidator();
+        $unique->validateAttribute($this,$attribute);
     }
 }
