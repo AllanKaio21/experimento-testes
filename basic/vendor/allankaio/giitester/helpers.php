@@ -428,7 +428,7 @@ class helpers
     public function genMinOrMax($min, $max, $type){
         $value = '';
         if($type != "integer") {
-            if ($max == null) {
+            if ($min != null) {
                 for ($i = 0; $i < $min; $i++) {
                     $value = $value . '' . rand(0, 9);
                 }

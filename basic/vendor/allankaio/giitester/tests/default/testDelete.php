@@ -82,7 +82,6 @@ class Test<?= $modelClassName ?>DeleteCest
 <?php endforeach;?>
     }
 }
-<?php $helper->testerExecOrder()?>
 <?php else:?>
     //TODO: Template "<?=$modelvf?>" not found, you must create the template for this table before creating the autotest.
 <?php endif;?>

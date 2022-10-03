@@ -802,7 +802,6 @@ m190521_011446_imovel	1560775886
 --
 
 COPY public.pessoa (id, nome, cpf, cep, rua, cidade_id, estado_id, profissao, complemento) FROM stdin;
-2	Alessandro Silva	88879690191	07029	\N	\N	16	\N	\N
 \.
 
 

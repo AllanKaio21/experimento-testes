@@ -19,7 +19,16 @@ class PessoaController extends Controller
     /**
      * {@inheritdoc}
      */
-
+//    public function behaviors(){
+//        return [
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//        ];
+//    }
 
     /**
      * Lists all Pessoa models.

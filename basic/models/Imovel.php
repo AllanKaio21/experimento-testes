@@ -32,9 +32,9 @@ class Imovel extends \yii\db\ActiveRecord
         return [
             [['nome', 'pessoa_id'], 'required'],
             [['pessoa_id', 'cidade_id', 'estado_id'], 'integer'],
-            [['cep', 'rua'], 'string', 'max' => 255],
+            [['cep', 'rua'], 'string','max' => 255],
             [['nome', 'complemento'], 'string'],
-            [['valor'], 'number', 'min' => 0, 'max' => 10],
+            [['valor'], 'number', 'min' => 0, 'max' => 9999999999],
             [['cidade_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cidade::className(), 'targetAttribute' => ['cidade_id' => 'id']],
             [['estado_id'], 'exist', 'skipOnError' => true, 'targetClass' => Estado::className(), 'targetAttribute' => ['estado_id' => 'id']],
             [['pessoa_id'], 'exist', 'skipOnError' => true, 'targetClass' => Pessoa::className(), 'targetAttribute' => ['pessoa_id' => 'id']],

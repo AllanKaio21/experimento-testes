@@ -29,7 +29,7 @@ class Pessoa extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'cpf'], 'required', 'message' => 'Campo não pode ficar em branco!'],
+            [['nome', 'cpf'], 'required'],
             [['cpf', 'cidade_id', 'estado_id'], 'integer'],
             [['cep', 'rua', 'profissao'], 'string', 'max' => 255],
             [['nome', 'complemento'], 'string'],

@@ -1,8 +1,8 @@
 <?php
 class TesteCest
 {
-    // Form
-    public function TesteForm(FunctionalTester $I)
+    // Create
+    public function TesteCreate(FunctionalTester $I)
     {
         $I->expectTo('Verify exception for form');
         $I->amOnRoute('teste/create');
