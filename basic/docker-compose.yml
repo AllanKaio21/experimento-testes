@@ -42,6 +42,7 @@ services:
                     && chmod -R 755 /app/views
                     && chmod -R 755 /app/controllers
                     && chmod +x /app/yii
+                    && chmod +x ./vendor/bin/codecept
                     && ./yii migrate --interactive=0
                     && export XDEBUG_CONFIG=\"remote_connect_back=0 remote_enable=1 remote_host=host.docker.internal\"
                     && supervisord -c  /etc/supervisor/supervisord.conf"
