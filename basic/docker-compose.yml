@@ -15,6 +15,7 @@ services:
       LANG: pt_BR.utf8
 
   app:
+    container_name: basic-app
     depends_on:
       - db
     image: dmstr/php-yii2:8.0-fpm-8.0-beta2-nginx
