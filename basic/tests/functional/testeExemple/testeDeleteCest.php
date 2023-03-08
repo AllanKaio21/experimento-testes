@@ -8,7 +8,7 @@ class TesteDelete
         $model = $I->grabRecord('app\models\Teste', array('nome' => 'Jorge'));
         $I->amOnRoute('teste/delete', ['id' => $model->id]);
         $I->dontSeeRecord('app\models\Teste', [
-            'id' => $id,
+            'id' => $model->id,
             'nome' => $model->nome,
         ]);
     }
